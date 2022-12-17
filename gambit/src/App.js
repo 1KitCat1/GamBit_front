@@ -1,9 +1,10 @@
-import './App.css';
-import React, {useState} from 'react'
-
-function App() {  
+import React from 'react';
+import NavbarComp from './components/NavbarComp';
+ 
+function App() {
   return (
-    <div className='App'>
+    <div className="App">
+      <NavbarComp />
     </div>
   );
 }
