@@ -1,36 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link
+  } from "react-router-dom";
+import Home from '../pages/Home';
+import Wallets from '../pages/Wallets';
+import Games from '../pages/Games';
+import Login from './Login';
 
+export default class NavbarComp extends Component {
+    render() { 
+        return ( 
+            <BrowserRouter>
+                <div>
+                    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                        <Container>
+                            <Navbar.Brand as={Link} to={"/"}>GamBit</Navbar.Brand>
+                            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                            <Navbar.Collapse id="responsive-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
+                                <Nav.Link as={Link} to={"/wallets"}>Wallets</Nav.Link>
+                                <NavDropdown title="Games" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="/games">FlyJet</NavDropdown.Item>
 
-function NavbarComp() {
-  return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+                                <NavDropdown.Divider />
+                                </NavDropdown>
+                            </Nav>
+                            <Nav>
+                                <Nav.Link as={Link} to={"/signin"}>Login</Nav.Link>
+                            </Nav>
+                            </Navbar.Collapse>
+                        </Container>
+                    </Navbar>
+
+                    <div>
+                        <Routes>
+                            <Route path="/" element={<Home/>} />
+                            <Route path="/wallets" element={<Wallets/>} />
+                            <Route path="/games" element={<Games/>} />
+                            <Route path="/signin" element={<Login/>} />
+                        </Routes>
+                    </div>
+                </div>
+            </BrowserRouter>
+        );
+    }
 }
-
-export default NavbarComp;
