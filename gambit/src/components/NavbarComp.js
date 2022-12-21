@@ -29,7 +29,8 @@ export default class NavbarComp extends Component {
                                 <Nav.Link as={Link} to={"/wallets"}>Wallets</Nav.Link>
                                 <NavDropdown title="Games" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="/games">FlyJet</NavDropdown.Item>
-
+                                <NavDropdown.Item href="/games">Monopoly</NavDropdown.Item>
+                                
                                 <NavDropdown.Divider />
                                 </NavDropdown>
                             </Nav>
