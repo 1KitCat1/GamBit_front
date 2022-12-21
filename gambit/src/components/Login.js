@@ -15,7 +15,7 @@ function Login() {
   return (
     <MDBContainer fluid>
 
-      <MDBRow className='d-flex justify-content-center align-items-center h-100'>
+      <MDBRow className='d-flex justify-content-center align-items-center h-50'>
         <MDBCol col='12'>
 
           <MDBCard className='bg-dark text-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '400px'}}>
