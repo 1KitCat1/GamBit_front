@@ -2,10 +2,17 @@ import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
 import Logo from "../imgs/logo3d-light.png";
 import { FormattedMessage } from "react-intl";
+import BackgroundImg from "../imgs/airplane-big-dark.jpg"
 
 const Home = () => {
+  const backgoundImgStyle={
+    backgroundImage: "url(" + BackgroundImg + ")",
+    height:'100vh',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+};
   return (
-    <div>
+    <div style={backgoundImgStyle}>
       <MDBContainer fluid className="p-4">
         <MDBRow>
           <MDBCol
