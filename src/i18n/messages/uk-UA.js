@@ -2,7 +2,7 @@ import { LOCALES } from "../locales";
 
 export default {
   [LOCALES.UKRAINIAN]: {
-    routes: "Маршрути",
+    email: "Електронна пошта",
     wallets: "Гаманці",
     home: "Головна",
     games: "Ігри",

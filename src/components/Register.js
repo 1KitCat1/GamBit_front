@@ -6,14 +6,10 @@ import * as Yup from "yup";
 import { FormattedMessage } from "react-intl";
 
 const schema = Yup.object().shape({
-  firstName: Yup.string()
+  email: Yup.string()
     .min(3, "First name must be mininum 3 characters")
     .max(15, "First name must be maximum 15 characters")
     .required("First name is a required field"),
-  lastName: Yup.string()
-    .min(3, "Last name must be mininum 3 characters")
-    .max(15, "Last name must be maximum 15 characters")
-    .required("Last name is a required field"),
   username: Yup.string()
     .min(3, "Mininum 3 characters")
     .max(15, "Maximum 15 characters")
@@ -30,11 +26,11 @@ function Register() {
   const handleRegisterSubmit = async (values) => {
     console.log("Values: ", values);
     setMessage("");
-
+    values.name = values.username;
     try {
       const response = await axios.post(
-        "https://localhost:8443/api/v1/auth/register",
-        values
+          "http://localhost:8080/testPost",
+        {}
       );
       setMessage("Success! Go to the login page to sign in.");
       console.log(response.data);
@@ -50,8 +46,7 @@ function Register() {
       <Formik
         validationSchema={schema}
         initialValues={{
-          firstName: "",
-          lastName: "",
+          email: "",
           username: "",
           password: "",
         }}
@@ -83,7 +78,7 @@ function Register() {
                   <span></span>
                 )}
                 <label>
-                  <FormattedMessage id="firstlastname" />
+                  <FormattedMessage id="email" />
                 </label>
                 <div
                   style={{
@@ -97,21 +92,10 @@ function Register() {
                     type="name"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.firstName}
+                    value={values.email}
                     className="form-control mt-1"
-                    placeholder="Enter first name"
-                    id="firstName"
-                    style={{ margin: "5px" }}
-                  />
-                  <input
-                    type="name"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.lastName}
-                    className="form-control mt-1"
-                    placeholder="Enter last name"
-                    id="lastName"
-                    style={{ margin: "5px" }}
+                    placeholder="Enter email"
+                    id="email"
                   />
                 </div>
                 {errors.firstName && touched.firstName && errors.firstName ? (
@@ -121,20 +105,16 @@ function Register() {
                 ) : (
                   <span></span>
                 )}
-                {errors.firstName &&
-                touched.firstName &&
-                errors.firstName &&
-                errors.lastName &&
-                touched.lastName &&
-                errors.lastName ? (
+                {errors.email &&
+                touched.email ? (
                   <br />
                 ) : (
                   <></>
                 )}
-                {errors.lastName && touched.lastName && errors.lastName ? (
+                {errors.email && touched.email && errors.email ? (
                   <>
                     <label>
-                      {errors.lastName && touched.lastName && errors.lastName}
+                      {errors.email && touched.email}
                     </label>
                   </>
                 ) : (
@@ -183,7 +163,7 @@ function Register() {
                   )}
                 </div>
                 <div className="d-grid gap-2 mt-3">
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-warning">
                     <FormattedMessage id="submit" />
                   </button>
                 </div>

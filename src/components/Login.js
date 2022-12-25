@@ -56,6 +56,7 @@ function Login() {
         onSubmit={(values) => {
           handleLoginSubmit(values);
         }}
+        
       >
         {({
           values,
@@ -120,14 +121,14 @@ function Login() {
                   )}
                 </div>
                 <div className="d-grid gap-2 mt-3">
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-warning">
                     <FormattedMessage id="submit" />
                   </button>
                 </div>
                 <p className="forgot-password text-right mt-2">
                   <FormattedMessage id="donthaveaccount" />{" "}
                   <Link to="/signup">
-                    <FormattedMessage id="registerhere" />
+                    <FormattedMessage id="signup" />
                   </Link>
                 </p>
               </div>

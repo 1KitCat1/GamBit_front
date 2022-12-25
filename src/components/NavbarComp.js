@@ -11,6 +11,7 @@ import {
 import Home from './Home';
 import Wallets from '../pages/Wallets';
 import Games from '../pages/Games';
+import Register from './Register';
 import Login from './Login';
 import Cookies from "js-cookie";
 import { FormattedMessage } from "react-intl";
@@ -101,6 +102,7 @@ const NavbarComp = () => {
                       <Route path="/wallets" element={<Wallets/>} />
                       <Route path="/games" element={<Games/>} />
                       <Route path="/signin" element={<Login/>} />
+                      <Route path="/signup" element={<Register/>} />
                   </Routes>
               </div>
           </div>

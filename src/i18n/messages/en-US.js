@@ -2,7 +2,7 @@ import { LOCALES } from "../locales";
 
 export default {
   [LOCALES.ENGLISH]: {
-    routes: "Routes",
+    email: "Email",
     wallets: "Wallets",
     home: "Home",
     games: "Games",
