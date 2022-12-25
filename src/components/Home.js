@@ -2,12 +2,12 @@ import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
 import Logo from "../imgs/logo3d-light.png";
 import { FormattedMessage } from "react-intl";
-import BackgroundImg from "../imgs/airplane-big-dark.jpg"
+import BackgroundImg from "../imgs/tech-background-dark.png"
 
 const Home = () => {
   const backgoundImgStyle={
     backgroundImage: "url(" + BackgroundImg + ")",
-    height:'100vh',
+    height:'88vh',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
 };
