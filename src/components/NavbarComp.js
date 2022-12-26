@@ -16,6 +16,9 @@ import Login from './Login';
 import Cookies from "js-cookie";
 import { FormattedMessage } from "react-intl";
 import { useSignOut } from "react-auth-kit";
+import { RequireAuth } from "react-auth-kit";
+import ManageUsers from './controlPanels/ManageUsers';
+
 
 const NavbarComp = () => {
   const [name, setName] = useState("");
@@ -26,10 +29,18 @@ const NavbarComp = () => {
     let userData = Cookies.get("_auth_state");
     if (userData != null) {
       setName(JSON.parse(userData).data.username);
-      setRoles(JSON.parse(userData).data.roles);
+      let strRoles = JSON.parse(userData).data.roles;
+      strRoles = strRoles.substr(1, strRoles.length-2);
+      setRoles(strRoles.split(", "));
     }
   }, []);
 
+  const isAdmin = () => {
+    for(let role of roles) {
+      if(role == "ROLE_ADMIN") return true;
+    }
+    return false;
+  }
   return (
           <div>
               <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -59,6 +70,29 @@ const NavbarComp = () => {
                           </NavDropdown>
                       </Nav>
                       <Nav>
+                      {Cookies.get("_auth") != null &&
+                      isAdmin() ? (
+                          <NavDropdown
+                            title={<FormattedMessage id="admpanel" />}
+                            id="collasible-nav-dropdown"
+                          >
+                            <NavDropdown.Item as={Link} to={"/manageUsers"}>
+                              <FormattedMessage id="users" />
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={"/manageStops"}>
+                              <FormattedMessage id="networks" />
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={"/#"}>
+                              <FormattedMessage id="contracts" />
+                            </NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to={"/#"}>
+                              <FormattedMessage id="games" />
+                            </NavDropdown.Item>
+                          </NavDropdown>
+                        ) : (
+                          <></>
+                        )}
+
                       {Cookies.get("_auth") != null ? (
                         <>
                           <Nav.Link as={Link} to={"/profile"}>
@@ -99,10 +133,32 @@ const NavbarComp = () => {
               <div>
                   <Routes>
                       <Route path="/" element={<Home/>} />
-                      <Route path="/wallets" element={<Wallets/>} />
-                      <Route path="/games" element={<Games/>} />
                       <Route path="/signin" element={<Login/>} />
                       <Route path="/signup" element={<Register/>} />
+                      <Route
+                        path="/wallets"
+                        element={
+                          <RequireAuth loginPath="/signin">
+                            <Wallets />
+                          </RequireAuth>
+                        }
+                      />
+                      <Route
+                        path="/games"
+                        element={
+                          <RequireAuth loginPath="/signin">
+                            <Games />
+                          </RequireAuth>
+                        }
+                      />
+                      <Route
+                        path="/manageUsers"
+                        element={
+                          <RequireAuth loginPath="/signin">
+                            <ManageUsers />
+                          </RequireAuth>
+                        }
+                      />
                   </Routes>
               </div>
           </div>

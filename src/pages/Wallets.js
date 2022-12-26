@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 function Wallets() {
 return (
   <div>
-    <div class="text-white" style={{margin:"40px", "background-color":"white"}}>
+    <div class="text-white" style={{margin:"40px", backgroundColor:"white"}}>
       <Table striped bordered hover>
         <thead>
           <tr>

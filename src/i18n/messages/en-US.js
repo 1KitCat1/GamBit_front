@@ -15,6 +15,10 @@ export default {
     finishgame: "Stop",
     gameinprogress: "Game in progress",
     addwallet: "Add wallet",
+    admpanel: "Admin",
+    users: "Users",
+    networks: "Networks",
+    contracts: "Contracts",
     hometxt: "Some inspiring text about how good our company is and why customers should trust us.",
     pricing: "Pricing",
     loggedinas: "Account: ",
@@ -41,5 +45,6 @@ export default {
     roles: "Roles",
     updateprofile: "Update your Profile",
     confirmpassword: "Confirm password",
+    adduser: "Add user"
   },
 };
