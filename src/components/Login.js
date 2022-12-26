@@ -43,7 +43,7 @@ function Login() {
       navigate("/");
       window.location.reload(false);
     } catch (err) {
-      setError("Bad credentials");
+      setError("No user with such credentials");
       console.log(err);
     }
   };

@@ -7,7 +7,7 @@ import BackgroundImg from "../imgs/tech-background-dark.png"
 const Home = () => {
   const backgoundImgStyle={
     backgroundImage: "url(" + BackgroundImg + ")",
-    height:'88vh',
+    height:'85vh',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
 };
