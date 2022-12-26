@@ -12,6 +12,8 @@ export default {
     games: "Ігри",
     monopoly: "Монополія",
     flyjet: "FlyJet",
+    finishgame: "Завершити гру",
+    gameinprogress: "Гра у процесі",
     hometxt: "Деякий мотивуючий текст про те наскільки гарна в нас компанія і чому клієнти мають довірити свої кошти саме нам",
     pricing: "Ціни",
     loggedinas: "Аккаунт: ",
