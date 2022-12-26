@@ -14,6 +14,7 @@ export default {
     flyjet: "FlyJet",
     finishgame: "Stop",
     gameinprogress: "Game in progress",
+    addwallet: "Add wallet",
     hometxt: "Some inspiring text about how good our company is and why customers should trust us.",
     pricing: "Pricing",
     loggedinas: "Account: ",
