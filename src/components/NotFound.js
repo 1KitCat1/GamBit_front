@@ -5,9 +5,11 @@ const NotFoundPage = () => {
     <div className="route-container">
       <div className="route-container-items" style={{
         fontSize:"30px",
-        padding: "100px"
+        padding: "100px",
+        backgroundColor: "#212529",
+        color: "#FFC107"
       }}>
-        404 Not Found
+        404 Page not found
       </div>
     </div>
   );

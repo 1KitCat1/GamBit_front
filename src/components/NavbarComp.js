@@ -18,7 +18,7 @@ import { FormattedMessage } from "react-intl";
 import { useSignOut } from "react-auth-kit";
 import { RequireAuth } from "react-auth-kit";
 import ManageUsers from './controlPanels/ManageUsers';
-
+import NotFoundPage from "./NotFound.js"
 
 const NavbarComp = () => {
   const [name, setName] = useState("");
@@ -159,6 +159,7 @@ const NavbarComp = () => {
                           </RequireAuth>
                         }
                       />
+                      <Route path="*" element={<NotFoundPage />} />
                   </Routes>
               </div>
           </div>
